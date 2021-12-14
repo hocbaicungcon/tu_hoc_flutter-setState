@@ -17,6 +17,14 @@ class OngBa extends StatefulWidget {
 }
 
 class _OngBaState extends State<OngBa> {
+  void foo() {
+    setState(() {
+      // counterOngBa++;
+      print('Class OngBa setState lan thu $counterOngBa');
+      print('Class ConCai setState lan thu $counterConCai');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     counterOngBa++;
@@ -35,7 +43,7 @@ class _OngBaState extends State<OngBa> {
                 },
                 child: Text('OngBa build lan thu $counterOngBa')),
           ),
-          BoMe(),
+          BoMe(foo: foo),
           CoChu(),
         ],
       ),
@@ -44,7 +52,8 @@ class _OngBaState extends State<OngBa> {
 }
 
 class BoMe extends StatefulWidget {
-  const BoMe({Key? key}) : super(key: key);
+  const BoMe({Key? key, this.foo}) : super(key: key);
+  final VoidCallback? foo;
 
   @override
   _BoMeState createState() => _BoMeState();
@@ -58,7 +67,11 @@ class _BoMeState extends State<BoMe> {
     return Column(children: [
       ElevatedButton(
         onPressed: () {
+          widget.foo!();
           setState(() {
+            // counterOngBa++;
+            // print('Class OngBa setState lan thu $counterOngBa');
+
             print('Class BoMe setState lan thu $counterBoMe');
           });
         },
@@ -85,6 +98,8 @@ class _ConCaiState extends State<ConCai> {
       child: ElevatedButton(
         onPressed: () {
           setState(() {
+            counterOngBa++;
+            print('Class OngBa setState lan thu $counterOngBa');
             print('Class ConCai setState lan thu $counterConCai');
           });
         },
