@@ -4,10 +4,10 @@ void main() {
   runApp(const OngBa());
 }
 
-int counterOngBa = 1;
-int counterBoMe = 1;
-int counterConCai = 1;
-int counterCoChu = 1;
+int counterOngBa = 0;
+int counterBoMe = 0;
+int counterConCai = 0;
+int counterCoChu = 0;
 
 class OngBa extends StatefulWidget {
   const OngBa({Key? key}) : super(key: key);
@@ -19,7 +19,8 @@ class OngBa extends StatefulWidget {
 class _OngBaState extends State<OngBa> {
   @override
   Widget build(BuildContext context) {
-    print('Class OngNoi build lan thu $counterOngBa');
+    counterOngBa++;
+    print('Class OngBa build lan thu $counterOngBa');
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Column(
@@ -29,11 +30,10 @@ class _OngBaState extends State<OngBa> {
             child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    counterOngBa++;
-                    print('Class OngNoi setState lan thu $counterOngBa');
+                    print('Class OngBa setState lan thu $counterOngBa');
                   });
                 },
-                child: Text('OngNoi build lan thu $counterOngBa')),
+                child: Text('OngBa build lan thu $counterOngBa')),
           ),
           BoMe(),
           CoChu(),
@@ -53,12 +53,12 @@ class BoMe extends StatefulWidget {
 class _BoMeState extends State<BoMe> {
   @override
   Widget build(BuildContext context) {
+    counterBoMe++;
     print('Class BoMe build lan thu $counterBoMe');
     return Column(children: [
       ElevatedButton(
         onPressed: () {
           setState(() {
-            counterBoMe++;
             print('Class BoMe setState lan thu $counterBoMe');
           });
         },
@@ -79,12 +79,12 @@ class ConCai extends StatefulWidget {
 class _ConCaiState extends State<ConCai> {
   @override
   Widget build(BuildContext context) {
+    counterConCai++;
     print('Class ConCai build lan thu $counterConCai');
     return Container(
       child: ElevatedButton(
         onPressed: () {
           setState(() {
-            counterConCai++;
             print('Class ConCai setState lan thu $counterConCai');
           });
         },
@@ -104,12 +104,12 @@ class CoChu extends StatefulWidget {
 class _CoChuState extends State<CoChu> {
   @override
   Widget build(BuildContext context) {
+    counterCoChu++;
     print('Class CoChu build lan thu $counterCoChu');
     return Container(
       child: ElevatedButton(
         onPressed: () {
           setState(() {
-            counterCoChu++;
             print('Class CoChu setState lan thu $counterCoChu');
           });
         },
